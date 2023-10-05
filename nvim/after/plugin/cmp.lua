@@ -95,3 +95,4 @@ cmp.setup {
     { name = 'copilot' },
   },
 }
+

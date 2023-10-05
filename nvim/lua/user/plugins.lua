@@ -37,7 +37,7 @@ require('packer').startup(function(use)
   -- use 'rust-lang/rust.vim'
   -- use 'simrat39/rust-tools.nvim'
   use 'pangloss/vim-javascript'
-  -- use 'leafgarland/typescript-vim'
+  use 'leafgarland/typescript-vim'
   use 'tomlion/vim-solidity'
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -78,29 +78,11 @@ require('packer').startup(function(use)
 
   use 'ray-x/go.nvim'
   use 'ray-x/guihua.lua'
-
-use({
-  "jackMort/ChatGPT.nvim",
-    config = function()
-      require("chatgpt").setup({
-        -- optional configuration
-        keymaps = {
-          close = { "<C-c>", "<Esc>" },
-          yank_last = "<C-y>",
-          scroll_up = "<C-u>",
-          scroll_down = "<C-d>",
-          toggle_settings = "<C-o>",
-          new_session = "<C-n>",
-          cycle_windows = "<Tab>",
-        },
-      })
-    end,
+  use {'buicongtan1997/vim-arsync',
     requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
+        {'prabirshrestha/async.vim'}
     }
-})
+}
 
   if is_bootstrap then
     require('packer').sync()

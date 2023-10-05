@@ -5,13 +5,13 @@ end
 
 tree.setup {
   view = {
-    mappings = {
-      list = {
-        { key = "x", action = "split" },
-        { key = "v", action = "vsplit" },
-        { key = "m", action = "cut" },
-      }
-    }
+    -- mappings = {
+    --   list = {
+    --     { key = "x", action = "split" },
+    --     { key = "v", action = "vsplit" },
+    --     { key = "m", action = "cut" },
+    --   }
+    -- }
   }
 }
 

@@ -24,7 +24,13 @@ local on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
 end
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- The following example advertise capabilities to `clangd`.
+require'lspconfig'.clangd.setup {
+  capabilities = capabilities,
+}
 
 lspconfig.tsserver.setup {
   cmd = {"typescript-language-server", "--stdio"},
@@ -70,11 +76,11 @@ lspconfig.solang.setup {
 require("mason").setup()
 require("mason-lspconfig").setup()
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  callback = function()
-    vim.lsp.buf.formatting_sync(nil, 3000)
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   callback = function()
+--     vim.lsp.buf.formatting_sync(nil, 3000)
+--   end,
+-- })
 
 -- use go.nvim plugin for Go code
 require('go').setup({
@@ -83,7 +89,7 @@ require('go').setup({
     capabilities = capabilities,
   },
   lsp_keymaps = lsp_keymaps,
-  lsp_diag_hdlr = true,
+  -- lsp_diag_hdlr = true,
   lsp_inlay_hints = {
     enable = true,
   },
